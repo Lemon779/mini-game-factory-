@@ -1,0 +1,16 @@
+{
+  "name": "game-001",
+  "version": "1.0.0",
+  "description": "Lightweight PWA foundation for Mini Game Factory game-001",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^7.1.3"
+  }
+}

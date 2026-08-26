@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta name="theme-color" content="#102a43" />
+		<meta name="description" content="Neon Dodge, an endless arcade survival game." />
+		<link rel="manifest" href="./assets/manifest-n9EdXBJJ.json" />
+		<link rel="icon" type="image/svg+xml" href="./assets/icon-DUl2YxRf.svg" />
+		<title>Neon Dodge | Mini Game Factory</title>
+		<script type="module" crossorigin src="./assets/main-OaqDORGC.js"></script>
+		<link rel="stylesheet" crossorigin href="./assets/style-BXRZT7EA.css">
+	</head>
+	<body>
+		<main class="app-shell">
+			<header class="app-header">
+				<p class="eyebrow">Mini Game Factory / 001</p>
+				<h1>Neon Dodge</h1>
+				<p class="subtitle">Stay alive in the falling neon field.</p>
+			</header>
+
+			<section class="game-frame" aria-labelledby="game-title">
+				<div class="game-frame__topline">
+					<span id="status-dot" class="status-dot" aria-hidden="true"></span>
+					<span id="game-title">Ready for launch</span>
+					<div class="hud-actions">
+						<button id="sound-toggle" class="icon-button" type="button" aria-pressed="true" aria-label="Turn sound off">Sound on</button>
+						<button id="pause-button" class="icon-button" type="button" aria-label="Pause game">Pause</button>
+					</div>
+				</div>
+				<div class="scoreboard" aria-label="Game statistics">
+					<div><span>Score</span><strong id="score">0</strong></div>
+					<div><span>Best</span><strong id="best-score">0</strong></div>
+					<div><span>Level</span><strong id="level">1</strong></div>
+					<div><span>Lives</span><strong id="lives">3</strong></div>
+				</div>
+				<div id="game-surface" class="game-surface" tabindex="0" role="application" aria-label="Neon Dodge game board">
+					<canvas id="game-canvas"></canvas>
+					<div id="game-overlay" class="game-overlay">
+						<p id="overlay-kicker" class="overlay-kicker">Endless survival</p>
+						<h2 id="overlay-title">Neon Dodge</h2>
+						<p class="overlay-tagline">Survive. Dodge. Dominate.</p>
+						<p id="overlay-message">Dodge the falling hazards. Use Arrow keys, A/D, or drag your ship.</p>
+						<div class="control-legend" aria-label="Controls">
+							<span><kbd>&larr;</kbd><kbd>&rarr;</kbd> Move</span>
+							<span><kbd>A</kbd><kbd>D</kbd> Move</span>
+							<span><kbd>P</kbd> Pause</span>
+						</div>
+						<p class="overlay-best">Best run <strong id="overlay-best">0</strong></p>
+						<button id="start-button" class="primary-button" type="button">Launch</button>
+						<button id="menu-button" class="secondary-button" type="button">Main menu</button>
+					</div>
+					<div id="game-feedback" class="game-feedback" aria-live="polite"></div>
+				</div>
+				<div class="touch-controls" aria-label="Touch controls">
+					<button class="touch-button" data-direction="left" type="button" aria-label="Move left">&#8592;</button>
+					<button class="touch-button" data-direction="right" type="button" aria-label="Move right">&#8594;</button>
+				</div>
+				<p id="input-status" class="input-status" aria-live="polite">Survive as long as you can.</p>
+			</section>
+
+			<footer class="app-footer">
+				<a href="pages/about.html">About</a>
+				<a href="pages/privacy.html">Privacy</a>
+			</footer>
+		</main>
+	</body>
+</html>
