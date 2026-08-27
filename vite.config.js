@@ -7,11 +7,23 @@ const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 function emitPwaFiles() {
   return {
     name: 'emit-pwa-files',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        return html.replace(
+          /<link rel="manifest" href="[^"]+" \/>/,
+          '<link rel="manifest" href="./manifest.json" />'
+        );
+      }
+    },
     generateBundle() {
       const files = [
         ['manifest.json', 'manifest.json', 'utf8'],
         ['sw.js', 'sw.js', 'utf8'],
-        ['assets/icons/icon.svg', 'assets/icons/icon.svg', 'utf8']
+        ['assets/icons/icon-192.png', 'assets/icons/icon-192.png'],
+        ['assets/icons/icon-512.png', 'assets/icons/icon-512.png'],
+        ['assets/screenshots/desktop.png', 'assets/screenshots/desktop.png'],
+        ['assets/screenshots/mobile.png', 'assets/screenshots/mobile.png']
       ];
       for (const [source, fileName, encoding] of files) {
         try {

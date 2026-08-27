@@ -2,8 +2,8 @@
 	"name": "Mini Game Factory - Game 001",
 	"short_name": "Game 001",
 	"description": "A lightweight browser game foundation.",
-	"start_url": "/game-001/",
-	"scope": "/game-001/",
+	"start_url": "./",
+	"scope": "./",
 	"display": "standalone",
 	"orientation": "any",
 	"background_color": "#f4f1ea",
@@ -11,10 +11,29 @@
 	"lang": "en",
 	"icons": [
 		{
-			"src": "/game-001/assets/icons/icon.svg",
-			"sizes": "any",
-			"type": "image/svg+xml",
-			"purpose": "any maskable"
+			"src": "./assets/icons/icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "./assets/icons/icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [
+		{
+			"src": "./assets/screenshots/desktop.png",
+			"sizes": "1280x720",
+			"type": "image/png",
+			"form_factor": "wide"
+		},
+		{
+			"src": "./assets/screenshots/mobile.png",
+			"sizes": "390x844",
+			"type": "image/png"
 		}
 	]
 }

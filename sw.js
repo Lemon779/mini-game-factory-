@@ -2,7 +2,10 @@ const CACHE_NAME = 'game-001-shell-v2';
 const APP_SHELL = [
 	'./',
 	'./manifest.json',
-	'./assets/icons/icon.svg'
+	'./assets/icons/icon-192.png',
+	'./assets/icons/icon-512.png',
+	'./assets/screenshots/desktop.png',
+	'./assets/screenshots/mobile.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -27,13 +30,26 @@ self.addEventListener('fetch', (event) => {
 	if (event.request.method !== 'GET') {
 		return;
 	}
+	const requestUrl = new URL(event.request.url);
+	if (!['http:', 'https:'].includes(requestUrl.protocol) || requestUrl.origin !== self.location.origin) {
+		return;
+	}
 
 	event.respondWith(
-		caches.match(event.request).then((cachedResponse) => cachedResponse || fetch(event.request).then((response) => {
-			if (!response || response.status !== 200 || response.type === 'opaque') return response;
-			const responseCopy = response.clone();
-			caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseCopy));
+		(async () => {
+			const cachedResponse = await caches.match(event.request);
+			if (cachedResponse) {
+				return cachedResponse;
+			}
+			const response = await fetch(event.request);
+			if (!response || response.status !== 200 || response.type === 'opaque') {
+				return response;
+			}
+			try {
+				const cache = await caches.open(CACHE_NAME);
+				await cache.put(event.request, response.clone());
+			} catch (_) {}
 			return response;
-		}))
+		})()
 	);
 });
