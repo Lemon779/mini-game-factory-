@@ -64,5 +64,10 @@
 				<a href="pages/privacy.html">Privacy</a>
 			</footer>
 		</main>
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/mini-game-factory-/sw.js', { scope: '/mini-game-factory-/' });
+			}
+		</script>
 	</body>
 </html>
